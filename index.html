@@ -3,7 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Renew Salon &amp; Spa — Meridian, MS</title>
+<title>Renew Salon &amp; Spa — Hair, Skin &amp; Massage in Meridian, MS</title>
+
+<!-- ── SEO ── -->
+<meta name="description" content="Renew Salon &amp; Spa in Meridian, MS — precision haircuts, expert color &amp; balayage, facials, waxing, massage and nails. Book with our licensed stylists &amp; esthetician. Walk-ins welcome for hair.">
+<meta name="keywords" content="hair salon Meridian MS, balayage Meridian, hair color, massage Meridian, facials, waxing, nails, Redken, Olaplex, Renew Salon &amp; Spa">
+<meta name="author" content="Renew Salon &amp; Spa">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0a0508">
+<link rel="canonical" href="https://almerraweb-sys.github.io/renew-salon/">
+
+<!-- ── Favicon (inline SVG, brand gradient) ── -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f8bbd0'/%3E%3Cstop offset='1' stop-color='%23e91e63'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23090407'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-weight='700' text-anchor='middle' fill='url(%23g)'%3ER%3C/text%3E%3C/svg%3E">
+
+<!-- ── Open Graph ── -->
+<meta property="og:type" content="business.business">
+<meta property="og:site_name" content="Renew Salon &amp; Spa">
+<meta property="og:title" content="Renew Salon &amp; Spa — Meridian, MS">
+<meta property="og:description" content="Relax. Refresh. Renew. Precision hair, expert color, facials, massage &amp; nails from Meridian's dedicated salon &amp; spa team.">
+<meta property="og:url" content="https://almerraweb-sys.github.io/renew-salon/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.renewsalonmeridian.com/s/cc_images/cache_959014517.jpg">
+<meta property="og:image:alt" content="Interior of Renew Salon &amp; Spa in Meridian, MS">
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Renew Salon &amp; Spa — Meridian, MS">
+<meta name="twitter:description" content="Relax. Refresh. Renew. Hair, skin, massage &amp; nails in Meridian, MS.">
+<meta name="twitter:image" content="https://www.renewsalonmeridian.com/s/cc_images/cache_959014517.jpg">
+
+<!-- ── Structured data: LocalBusiness (HairSalon) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Renew Salon & Spa",
+  "description": "Full-service hair salon and day spa in Meridian, MS offering haircuts, color, balayage, facials, waxing, massage and nails.",
+  "url": "https://almerraweb-sys.github.io/renew-salon/",
+  "image": "https://www.renewsalonmeridian.com/s/cc_images/cache_959014517.jpg",
+  "telephone": "+1-601-286-3021",
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2500 North Hills St., Suite D",
+    "addressLocality": "Meridian",
+    "addressRegion": "MS",
+    "postalCode": "39305",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 32.4171,
+    "longitude": -88.7009
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/renew.salon.meridian",
+    "https://www.instagram.com/renew.salon.meridian/",
+    "https://www.renewsalonmeridian.com"
+  ]
+}
+</script>
 <style>
 /* ═══════════════════════════════════════════════════════════════════
    Style: Apple × Linear × Stripe × Notion × Framer
@@ -14,8 +88,8 @@
   --card:   #0f0f0f;
   --border: rgba(255,255,255,0.05);
   --text:   #f5f5f7;
-  --dim:    #98989d;
-  --muted:  #555558;
+  --dim:    #a1a1a8;
+  --muted:  #8a8a90;
   --accent: #f8bbd0;
   --accent2:#e91e63;
   --brand:  linear-gradient(135deg, #f8bbd0 0%, #e91e63 100%);
@@ -72,6 +146,44 @@ nav .wrap{
   background:radial-gradient(circle,rgba(248,187,208,0.06) 0%,transparent 70%);
   pointer-events:none;
 }
+/* Interactive glow that follows the cursor (driven by --mx/--my from JS) */
+.hero::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(340px circle at var(--mx,70%) var(--my,35%),rgba(248,187,208,0.14),transparent 60%);
+  opacity:0;transition:opacity .5s;mix-blend-mode:screen;
+}
+.hero:hover::after{opacity:1}
+
+/* ── SCROLL PROGRESS BAR ── */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:200;
+  background:var(--brand);box-shadow:0 0 12px rgba(233,30,99,.6);
+  transition:width .1s linear;
+}
+
+/* ── SERVICE ICON (replaces emoji) ── */
+.svc-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.svc-icon{
+  flex:0 0 auto;width:42px;height:42px;border-radius:12px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,rgba(248,187,208,.16),rgba(233,30,99,.08));
+  border:1px solid rgba(248,187,208,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+  transition:all .4s;
+}
+.svc-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.service-block:hover .svc-icon{
+  border-color:rgba(248,187,208,.5);
+  box-shadow:0 0 22px rgba(248,187,208,.2),inset 0 1px 0 rgba(255,255,255,.1);
+  transform:translateY(-2px);
+}
+.svc-head h3{margin-bottom:0}
+.callout-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.callout-head h4{margin:0}
+.callout-head .svc-icon{width:34px;height:34px;border-radius:10px}
+.callout-head .svc-icon svg{width:18px;height:18px}
+.offer-head{display:inline-flex;align-items:center;gap:10px;justify-content:center}
+.offer-head .svc-icon{width:36px;height:36px}
 .hero h1{font-size:clamp(54px,8vw,100px);font-weight:740;line-height:.93;letter-spacing:-0.05em;margin-bottom:24px}
 .hero h1 .gradient-text{background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero .sub{font-size:19px;color:var(--dim);max-width:540px;font-weight:360;line-height:1.75}
@@ -180,8 +292,14 @@ footer a:hover{color:var(--text)}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── TEXT GRADIENT ── */
-.gradient-text{background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* ── TEXT GRADIENT (with slow shimmer) ── */
+.gradient-text{
+  background:linear-gradient(110deg,#f8bbd0 0%,#e91e63 30%,#fff0f5 50%,#e91e63 70%,#f8bbd0 100%);
+  background-size:220% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 7s linear infinite;
+}
+@keyframes shimmer{to{background-position:-220% center}}
 
 /* ── BRANDS ── */
 .brands-section{position:relative}
@@ -348,9 +466,21 @@ footer a:hover{color:var(--text)}
   position:fixed;inset:0;z-index:0;pointer-events:none;
   filter:blur(48px);will-change:transform,filter;
 }
+
+/* ── ACCESSIBILITY: reduce motion ── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .brand-card,.brand-card-online{opacity:1!important;transform:none!important}
+  #bg-smoke{display:none}
+  .gradient-text{animation:none}
+  .hero:hover::after{opacity:0}
+}
 </style>
 </head>
 <body>
+
+  <div class="scroll-progress" id="scroll-progress"></div>
 
   <!-- ── NAV ── -->
   <nav>
@@ -393,7 +523,7 @@ footer a:hover{color:var(--text)}
     </p>
     <div class="cta-row">
       <a href="tel:+16012863021" class="btn btn-accent">Book Appointment</a>
-      <a href="http://shop.renewmeridian.com" class="btn btn-ghost" target="_blank">Shop Online →</a>
+      <a href="https://shop.renewmeridian.com" class="btn btn-ghost" target="_blank">Shop Online →</a>
     </div>
   </div>
 </header>
@@ -410,7 +540,10 @@ footer a:hover{color:var(--text)}
     <p>Achieve the hair you've always dreamed of. From precision cuts to stunning color — your ultimate hair transformation starts here.</p>
     <div class="service-grid">
       <div class="service-block">
-        <h3>✂ Precision Cuts</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
+          <h3>Precision Cuts</h3>
+        </div>
         <ul>
           <li>Women's cuts — tailored to face shape &amp; lifestyle</li>
           <li>Men's cuts — classic to modern</li>
@@ -418,7 +551,10 @@ footer a:hover{color:var(--text)}
         </ul>
       </div>
       <div class="service-block">
-        <h3>🎨 Expert Color</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/></svg></span>
+          <h3>Expert Color</h3>
+        </div>
         <ul>
           <li>Balayage — hand-painted, natural dimension</li>
           <li>Vivids — bold, fashion-forward color</li>
@@ -427,7 +563,10 @@ footer a:hover{color:var(--text)}
         </ul>
       </div>
       <div class="service-block">
-        <h3>✨ Texture &amp; Treatments</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17l-1.9-5.1L4.5 10l5.6-1.4L12 3z"/><path d="M19 15l.6 1.8L21.5 17l-1.9.6L19 19l-.6-1.4L16.5 17l1.9-.2L19 15z"/></svg></span>
+          <h3>Texture &amp; Treatments</h3>
+        </div>
         <ul>
           <li>Keratin treatments — smooth, frizz-free</li>
           <li>Brazilian BlowOut — sleek, lasting results</li>
@@ -448,7 +587,10 @@ footer a:hover{color:var(--text)}
     <h2>Relaxation<br>&amp; Results</h2>
     <div class="service-grid">
       <div class="service-block">
-        <h3>🧖 Skin &amp; Waxing Expertise</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 5.5-9 9-10 .5 4-1 6-3 8"/><path d="M4 21c1.5-5 4-8 9-9"/></svg></span>
+          <h3>Skin &amp; Waxing Expertise</h3>
+        </div>
         <ul>
           <li>Custom facials — personalized to your skin</li>
           <li>Chemical peels — renew &amp; brighten</li>
@@ -459,7 +601,10 @@ footer a:hover{color:var(--text)}
         <p style="margin-top:12px;font-size:13px;color:var(--muted);">Licensed esthetician in a private, calming setting.</p>
       </div>
       <div class="service-block">
-        <h3>💆 Deep Relaxation &amp; Massage</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c4-2 7-5 7-9 0-1.5-1-3-2.5-3-1 0-1.8.6-2.3 1.4C13.7 8 12.9 6 12 4c-.9 2-1.7 4-2.2 7.4C9.3 10.6 8.5 10 7.5 10 6 10 5 11.5 5 13c0 4 3 7 7 9z"/><path d="M12 22V11"/></svg></span>
+          <h3>Deep Relaxation &amp; Massage</h3>
+        </div>
         <ul>
           <li>60-minute full-body therapeutic massage</li>
           <li>90-minute extended session</li>
@@ -470,7 +615,10 @@ footer a:hover{color:var(--text)}
         <p style="margin-top:12px;font-size:13px;color:var(--muted);">Massage by appointment only.</p>
       </div>
       <div class="service-block">
-        <h3>💅 Nail Beauty</h3>
+        <div class="svc-head">
+          <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="9" width="8" height="12" rx="2"/><path d="M10 9V6h4v3"/><path d="M11 6V3h2v3"/><line x1="8" y1="13" x2="16" y2="13"/></svg></span>
+          <h3>Nail Beauty</h3>
+        </div>
         <ul>
           <li>Classic Manicure — meticulous care</li>
           <li>Spa Pedicure — relaxing foot treatment</li>
@@ -625,7 +773,10 @@ footer a:hover{color:var(--text)}
         </div>
 
         <div class="skincare-callout">
-          <h4>🧖 DermAware BioTargeted Skin Care</h4>
+          <div class="callout-head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+            <h4>DermAware BioTargeted Skin Care</h4>
+          </div>
           <p>Schedule a facial with our licensed esthetician to discover which DermAware products are best suited for your unique skin needs. Pure formulations — no drying added alcohols, never watered down, ensuring concentrated, effective results.</p>
         </div>
       </div>
@@ -633,13 +784,13 @@ footer a:hover{color:var(--text)}
 
     <!-- ── SPECIAL OFFER ── -->
     <div class="offer" style="margin-top:40px">
-      <h2>✨ Limited-Time Offer</h2>
+      <h2 class="offer-head"><span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12.2V5a2 2 0 0 1 2-2h7.2a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span> Limited-Time Offer</h2>
       <p><strong style="color:var(--text);">REDKEN Acidic Color Gloss</strong> — lock in maximum shine. Take <strong style="color:var(--accent);">20% OFF</strong> any single product or save big with <strong style="color:var(--accent);">35% OFF</strong> the entire 4-Product System. While supplies last.</p>
-      <a href="http://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Shop the Offer</a>
+      <a href="https://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Shop the Offer</a>
     </div>
 
     <div class="brands-cta cta-row">
-      <a href="http://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Start Shopping Local →</a>
+      <a href="https://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Start Shopping Local →</a>
       <a href="https://www.renewsalonmeridian.com" class="btn btn-ghost" target="_blank">Visit Official Site</a>
     </div>
   </div>
@@ -751,8 +902,8 @@ footer a:hover{color:var(--text)}
       <div class="contact-card">
         <div class="label">Follow Us</div>
         <div class="social-row">
-          <a href="https://www.facebook.com/renew.salon.meridian" class="social-btn" target="_blank">Facebook</a>
-          <a href="https://www.instagram.com/renew.salon.meridian/" class="social-btn" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/renew.salon.meridian" class="social-btn" target="_blank" rel="noopener" aria-label="Follow us on Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.53-1.5H17V4.6c-.28-.04-1.25-.12-2.38-.12-2.35 0-3.96 1.44-3.96 4.08v2.27H8v3.1h2.66V22z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/renew.salon.meridian/" class="social-btn" target="_blank" rel="noopener" aria-label="Follow us on Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
         </div>
       </div>
     </div>
@@ -778,118 +929,21 @@ footer a:hover{color:var(--text)}
 
 <!-- ═══════════════════════════════════════════════════════════════════ -->
 <script>
-/* ═══════════════════════════════════════════════════════════════════
-   Boomerang Video Background — captures frames, plays forward/backward
-   ═══════════════════════════════════════════════════════════════════ */
-(function() {
-  const VIDEO_SRC = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4';
-  const displayCanvas = document.getElementById('hero-canvas');
-  if (!displayCanvas) return;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Create hidden video for frame capture
-  const video = document.createElement('video');
-  video.src = VIDEO_SRC;
-  video.muted = true;
-  video.playsInline = true;
-  video.preload = 'auto';
-  video.crossOrigin = 'anonymous';
-  video.style.display = 'none';
-  document.body.appendChild(video);
-
-  const frames = [];
-  let capturing = true;
-  let lastTime = -1;
-  const MAX_WIDTH = 960;
-
-  function captureFrame() {
-    if (!capturing || video.readyState < 2) return;
-    if (video.currentTime === lastTime) return;
-    lastTime = video.currentTime;
-
-    var vw = video.videoWidth;
-    var vh = video.videoHeight;
-    if (!vw || !vh) return;
-
-    var scale = Math.min(1, MAX_WIDTH / vw);
-    var w = Math.round(vw * scale);
-    var h = Math.round(vh * scale);
-
-    var c = document.createElement('canvas');
-    c.width = w;
-    c.height = h;
-    var ctx = c.getContext('2d');
-    if (!ctx) return;
-    ctx.drawImage(video, 0, 0, w, h);
-    frames.push(c);
+/* ── Scroll progress bar ── */
+(function(){
+  var bar=document.getElementById('scroll-progress');if(!bar)return;
+  var ticking=false;
+  function update(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;
+    bar.style.width=(p*100)+'%';
+    ticking=false;
   }
-
-  var hasVFC = typeof video.requestVideoFrameCallback === 'function';
-  var rafId = 0;
-
-  function rafLoop() {
-    captureFrame();
-    if (capturing) rafId = requestAnimationFrame(rafLoop);
-  }
-
-  function vfcLoop() {
-    captureFrame();
-    if (capturing && video.requestVideoFrameCallback) {
-      video.requestVideoFrameCallback(vfcLoop);
-    }
-  }
-
-  function playBoomerang() {
-    if (frames.length === 0) return;
-
-    var ctx = displayCanvas.getContext('2d');
-    if (!ctx) return;
-
-    var first = frames[0];
-    displayCanvas.width = first.width;
-    displayCanvas.height = first.height;
-
-    var index = 0;
-    var direction = 1;
-    var last = performance.now();
-    var interval = 1000 / 30;
-
-    function render(now) {
-      if (now - last >= interval) {
-        last = now;
-        ctx.drawImage(frames[index], 0, 0);
-        index += direction;
-        if (index >= frames.length - 1) {
-          index = frames.length - 1;
-          direction = -1;
-        } else if (index <= 0) {
-          index = 0;
-          direction = 1;
-        }
-      }
-      requestAnimationFrame(render);
-    }
-
-    requestAnimationFrame(render);
-    displayCanvas.style.display = 'block';
-    displayCanvas.parentElement.style.backgroundImage = 'none';
-  }
-
-  video.addEventListener('ended', function() {
-    capturing = false;
-    if (frames.length > 0) playBoomerang();
-  });
-
-  function startCapture() {
-    video.play().catch(function() {});
-    if (hasVFC) {
-      video.requestVideoFrameCallback(vfcLoop);
-    } else {
-      rafId = requestAnimationFrame(rafLoop);
-    }
-  }
-
-  video.addEventListener('loadedmetadata', startCapture);
-  if (video.readyState >= 1) startCapture();
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});
+  update();
 })();
 
 // Scroll reveal animation
@@ -946,7 +1000,9 @@ hero.addEventListener('mousemove', (e) => {
 /* ── Background Smoke Engine ── */
 (function(){
   var cv=document.getElementById('bg-smoke');if(!cv)return;
+  if(reduceMotion){cv.style.display='none';return;}
   var ctx=cv.getContext('2d');
+  var running=false,rafId=0;
   var blobs=[],turb=0.8;
   var COLS=[{r:233,g:30,b:99},{r:173,g:20,b:87},{r:248,g:187,b:208}];
   function lerp(a,b,t){return a+(b-a)*t}
@@ -979,13 +1035,18 @@ hero.addEventListener('mousemove', (e) => {
       g.addColorStop(0,col(b.l)+'0.22)');g.addColorStop(0.4,col(b.l)+'0.10)');g.addColorStop(1,'rgba(0,0,0,0)');
       ctx.fillStyle=g;ctx.fillRect((b.x-b.r)*dpr,(b.y-b.r)*dpr,b.r*2*dpr,b.r*2*dpr)
     }
-    requestAnimationFrame(render)
+    if(running) rafId=requestAnimationFrame(render)
   }
+
+  function start(){if(running)return;running=true;rafId=requestAnimationFrame(render)}
+  function stop(){running=false;if(rafId)cancelAnimationFrame(rafId)}
 
   cv.style.filter='blur(48px)';build();
   var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;
   window.addEventListener('resize',function(){var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;build()});
-  requestAnimationFrame(render)
+  // Pause the animation whenever the tab/window is hidden — saves battery & CPU
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+  start();
 })();
 </script>
 
