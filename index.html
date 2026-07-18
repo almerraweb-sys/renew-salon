@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Renew Salon &amp; Spa — Meridian, MS</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   Style: Apple × Linear × Stripe × Notion × Framer
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --bg:     #000000;
+  --surf:   #080808;
+  --card:   #0f0f0f;
+  --border: rgba(255,255,255,0.05);
+  --text:   #f5f5f7;
+  --dim:    #98989d;
+  --muted:  #555558;
+  --accent: #f8bbd0;
+  --accent2:#e91e63;
+  --brand:  linear-gradient(135deg, #f8bbd0 0%, #e91e63 100%);
+}
+
+@font-face{font-family:'Inter';font-style:normal;font-weight:300 800;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2')}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#000}
+body{
+  background:transparent;color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-weight:350;line-height:1.6;letter-spacing:-0.01em;overflow-x:hidden;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.018;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:14px;left:0;right:0;z-index:100;background:transparent;
+}
+nav .wrap{
+  display:flex;align-items:center;justify-content:space-between;height:58px;
+  padding:0 14px 0 24px;
+  background:rgba(18,10,14,0.34);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:16px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.nav-logo{font-size:18px;font-weight:650;color:var(--text);text-decoration:none;letter-spacing:-0.02em}
+.nav-logo .accent{background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:420;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 64px;position:relative;overflow:hidden;background:#000}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(1.1) contrast(1.05) brightness(.72)}
+.hero-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(130deg,#f8bbd0 0%,#e91e63 60%,#ad1457 100%);mix-blend-mode:color;opacity:.9}
+.hero-glowmix{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(60% 80% at 70% 38%,rgba(248,187,208,.22),transparent 70%);mix-blend-mode:screen}
+.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.25) 55%,rgba(0,0,0,.05) 100%),linear-gradient(0deg,rgba(0,0,0,.5),transparent 50%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(48px,8vw,96px);font-weight:750;line-height:.92;letter-spacing:-0.05em;margin-bottom:30px}
+.hero .sub{font-size:clamp(15px,2vw,19px);font-weight:380;color:var(--dim);max-width:520px;margin-bottom:40px;line-height:1.65}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 34px;border-radius:12px;
+  font-weight:540;font-size:15px;text-decoration:none;letter-spacing:-0.01em;transition:all .3s;
+}
+.btn-accent{background:var(--accent2);color:#fff;box-shadow:0 8px 24px rgba(233,30,99,0.3)}
+.btn-accent:hover{background:#c41952;transform:translateY(-2px);box-shadow:0 12px 32px rgba(233,30,99,0.4)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.15)}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.03);transform:translateY(-1px)}
+
+/* ── SECTIONS ── */
+.section{padding:120px 0;position:relative;z-index:1}
+.section-label{font-size:11px;font-weight:640;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:20px;display:inline-block;padding:5px 12px;border:1px solid rgba(248,187,208,0.18);border-radius:20px}
+.section h2{font-size:clamp(34px,4.5vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:1.12;margin-bottom:28px}
+.section h3{font-size:22px;font-weight:640;letter-spacing:-0.02em;margin-bottom:10px}
+.section p{color:var(--dim);max-width:600px;margin:0 auto 40px;font-size:16px;line-height:1.75}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:12px;text-align:left}
+.service-block{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:all .3s}
+.service-block:hover{border-color:rgba(255,255,255,0.08)}
+.service-block h3{font-size:17px;margin-bottom:14px;color:var(--text)}
+.service-block ul{list-style:none;color:var(--dim);font-size:14px;line-height:2}
+.service-block li::before{content:'— ';color:var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:28px 0;text-align:left}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:all .3s}
+.card:hover{border-color:rgba(248,187,208,0.15)}
+.card h3{font-size:19px;font-weight:650;margin-bottom:8px}
+.card p{color:var(--dim);font-size:14px;line-height:1.7;margin:0}
+
+/* ── OFFER ── */
+.offer{
+  background:linear-gradient(135deg,rgba(248,187,208,0.06),rgba(233,30,99,0.03));
+  border:1px solid rgba(248,187,208,0.15);border-radius:20px;padding:48px 40px;margin-top:48px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.offer::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle at 30% 50%,rgba(248,187,208,0.05) 0%,transparent 50%);
+  pointer-events:none;
+}
+.offer h2{font-size:30px;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
+.offer p{color:var(--dim);max-width:520px;margin:0 auto 24px;position:relative;z-index:1;font-size:16px}
+.offer .btn{position:relative;z-index:1}
+
+/* ── GALLERY ── */
+.gallery-wrap{margin-top:48px}
+.gallery-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;scrollbar-width:none}
+.gallery-scroll::-webkit-scrollbar{display:none}
+.gallery-scroll a{flex:0 0 auto;scroll-snap-align:start;border-radius:16px;overflow:hidden;transition:all .5s;opacity:.82;filter:brightness(0.9)}
+.gallery-scroll a:hover{transform:scale(1.025);opacity:1;filter:brightness(1.05);box-shadow:0 16px 48px rgba(0,0,0,0.5)}
+.gallery-scroll img{display:block;height:440px;width:auto;max-width:none;object-fit:cover;border-radius:16px}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px}
+.contact-card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;
+  transition:all .3s;
+}
+.contact-card:hover{border-color:rgba(255,255,255,0.1)}
+.contact-card .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+.contact-card .value{font-size:17px;font-weight:450;color:var(--text);line-height:1.6}
+.contact-card a{color:var(--accent);text-decoration:none;transition:color .2s}
+.contact-card a:hover{color:#fcd5e0}
+
+/* ── SOCIAL ── */
+.social-row{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;background:var(--card);border:1px solid var(--border);color:var(--text);transition:all .3s}
+.social-btn:hover{border-color:rgba(248,187,208,0.3);background:#1a1a1a;transform:translateY(-1px)}
+
+/* ── STORE ── */
+.store-brands{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0}
+.brand-tag{font-size:13px;font-weight:550;padding:8px 18px;border-radius:20px;background:var(--card);border:1px solid var(--border);color:var(--dim);letter-spacing:.01em}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color:var(--muted);font-size:13px}
+footer a{color:var(--dim);text-decoration:none}
+footer a:hover{color:var(--text)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── TEXT GRADIENT ── */
+.gradient-text{background:var(--brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── BRANDS ── */
+.brands-section{position:relative}
+.brands-section::before{
+  content:'';position:absolute;top:5%;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle at 30% 40%,rgba(248,187,208,.1),transparent 55%),
+             radial-gradient(circle at 70% 60%,rgba(233,30,99,.06),transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.brands-subtitle{font-size:19px;color:var(--accent);font-weight:400;margin-top:6px;margin-bottom:48px;letter-spacing:-0.01em}
+.brands-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;position:relative;z-index:1}
+.brands-col-title{
+  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--accent);margin-bottom:20px;padding-bottom:10px;
+  border-bottom:1px solid rgba(248,187,208,.25);
+}
+
+/* Pink glass card */
+.brand-card{
+  background:linear-gradient(160deg,rgba(248,187,208,.18),rgba(233,30,99,.06));
+  border:1px solid rgba(248,187,208,.28);
+  border-radius:16px;padding:24px 26px;
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+  opacity:0;transform:translateY(24px);
+  backdrop-filter:blur(2px);
+}
+.brand-card.visible{opacity:1;transform:translateY(0)}
+.brand-card:hover{
+  background:linear-gradient(160deg,rgba(248,187,208,.32),rgba(233,30,99,.14));
+  border-color:rgba(248,187,208,.55);
+  box-shadow:0 0 40px rgba(248,187,208,.18),inset 0 1px 0 rgba(255,255,255,.08);
+  transform:translateY(-3px);
+}
+.brand-card.visible:hover{transform:translateY(-3px)}
+.brand-card+.brand-card{margin-top:12px}
+.brand-card h4{
+  font-size:16px;font-weight:650;color:#fff;
+  margin:0 0 12px;letter-spacing:-0.01em;
+}
+.brand-tags{display:flex;flex-wrap:wrap;gap:6px}
+.brand-tag-sm{
+  font-size:11.5px;font-weight:450;padding:5px 12px;border-radius:7px;
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.12);
+  transition:all .25s;line-height:1.5;
+  backdrop-filter:blur(4px);
+}
+.brand-tag-sm:hover{
+  background:rgba(248,187,208,.3);color:#fff;
+  border-color:rgba(248,187,208,.45);
+  box-shadow:0 0 12px rgba(248,187,208,.15);
+}
+
+/* Online chips */
+.online-brand-grid{display:flex;flex-wrap:wrap;gap:8px}
+.online-brand-chip{
+  font-size:12px;font-weight:500;padding:6px 15px;border-radius:20px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(248,187,208,.2);
+  color:rgba(255,255,255,.8);
+  transition:all .3s cubic-bezier(.22,.61,.36,1);
+  backdrop-filter:blur(4px);
+}
+.online-brand-chip:hover{
+  background:rgba(248,187,208,.3);color:#fff;
+  border-color:rgba(248,187,208,.5);
+  box-shadow:0 4px 16px rgba(248,187,208,.2);
+  transform:translateY(-2px);
+}
+
+/* Skincare callout */
+.skincare-callout{
+  background:linear-gradient(140deg,rgba(248,187,208,.2),rgba(233,30,99,.12));
+  border:1px solid rgba(248,187,208,.35);
+  border-radius:16px;padding:28px 28px;margin-top:24px;
+  transition:all .4s;
+  position:relative;overflow:hidden;
+}
+.skincare-callout::after{
+  content:'';position:absolute;top:-50%;right:-50%;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(248,187,208,.2),transparent 70%);
+  pointer-events:none;
+}
+.skincare-callout:hover{
+  border-color:rgba(248,187,208,.55);
+  box-shadow:0 0 36px rgba(248,187,208,.15);
+}
+.skincare-callout h4{
+  font-size:16px;font-weight:650;color:#fff;margin:0 0 10px;position:relative;z-index:1;
+}
+.skincare-callout p{
+  font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.75;margin:0;position:relative;z-index:1;
+}
+.brands-cta{margin-top:44px}
+
+/* Online store card */
+.brand-card-online{
+  background:linear-gradient(160deg,rgba(248,187,208,.14),rgba(233,30,99,.04));
+  border:1px solid rgba(248,187,208,.22);
+  border-radius:16px;padding:24px 26px;
+  transition:all .5s cubic-bezier(.22,.61,.36,1);
+  opacity:0;transform:translateY(24px);
+}
+.brand-card-online.visible{opacity:1;transform:translateY(0)}
+.brand-card-online:hover{
+  border-color:rgba(248,187,208,.45);
+  box-shadow:0 0 30px rgba(248,187,208,.12);
+  transform:translateY(-2px);
+}
+.brand-card-online.visible:hover{transform:translateY(-2px)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .wrap{padding:0 20px}
+  .nav-links{display:none}
+  .hero{min-height:auto;padding:120px 0 60px}
+  .hero h1{font-size:42px}
+  .section{padding:70px 0}
+  .gallery-scroll img{height:300px}
+  .offer{padding:32px 24px}
+  .service-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:34px}
+  .section h2{font-size:28px}
+}
+
+/* ── Burger + Mobile Menu ── */
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101}
+.burger span{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;transition:.3s;border-radius:1px}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-overlay{position:fixed;inset:0;z-index:98;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+.mobile-menu{position:fixed;top:0;right:0;bottom:0;z-index:99;width:80%;max-width:320px;background:var(--surf);border-left:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;padding:48px 36px;gap:8px;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-link{font-size:20px;font-weight:550;color:var(--text);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-link:hover{color:var(--accent)}
+
+/* ── Touch targets ── */
+@media(max-width:768px){
+  .btn{padding:14px 28px;font-size:13px}
+  .btn-accent,.btn-ghost{min-height:48px;display:inline-flex;align-items:center}
+  .burger{display:block}
+}
+@media(max-width:480px){
+  .mobile-link{font-size:18px}
+}
+
+/* ── Background Smoke ── */
+#bg-smoke{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  filter:blur(48px);will-change:transform,filter;
+}
+</style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="wrap">
+      <a href="#" class="nav-logo">Renew <span class="accent">Salon</span> &amp; Spa</a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#hair">Services</a></li>
+        <li><a href="#our-staff">Our Staff</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#directions">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" class="mobile-link">Home</a>
+    <a href="#hair" class="mobile-link">Services</a>
+    <a href="#our-staff" class="mobile-link">Our Staff</a>
+    <a href="#products" class="mobile-link">Products</a>
+    <a href="#directions" class="mobile-link">Contact</a>
+  </div>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="wrap">
+    <h1>
+      RELAX.<br>
+      REFRESH.<br>
+      <span class="gradient-text">RENEW.</span>
+    </h1>
+    <p class="sub">
+      Discover Your Best Self at Renew Salon &amp; Spa.<br>
+      Where restoration is a lifestyle.
+    </p>
+    <div class="cta-row">
+      <a href="tel:+16012863021" class="btn btn-accent">Book Appointment</a>
+      <a href="http://shop.renewmeridian.com" class="btn btn-ghost" target="_blank">Shop Online →</a>
+    </div>
+  </div>
+</header>
+
+<canvas id="bg-smoke" aria-hidden="true"></canvas>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── HAIR SERVICES ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="hair">
+  <div class="wrap">
+    <div class="section-label">Hair Perfection</div>
+    <h2>Where your vision<br>comes to life</h2>
+    <p>Achieve the hair you've always dreamed of. From precision cuts to stunning color — your ultimate hair transformation starts here.</p>
+    <div class="service-grid">
+      <div class="service-block">
+        <h3>✂ Precision Cuts</h3>
+        <ul>
+          <li>Women's cuts — tailored to face shape &amp; lifestyle</li>
+          <li>Men's cuts — classic to modern</li>
+          <li>Children's haircuts — patient, kid-friendly service</li>
+        </ul>
+      </div>
+      <div class="service-block">
+        <h3>🎨 Expert Color</h3>
+        <ul>
+          <li>Balayage — hand-painted, natural dimension</li>
+          <li>Vivids — bold, fashion-forward color</li>
+          <li>Highlights &amp; lowlights</li>
+          <li>Full color transformations</li>
+        </ul>
+      </div>
+      <div class="service-block">
+        <h3>✨ Texture &amp; Treatments</h3>
+        <ul>
+          <li>Keratin treatments — smooth, frizz-free</li>
+          <li>Brazilian BlowOut — sleek, lasting results</li>
+          <li>Sew-In Extensions — seamless length &amp; volume</li>
+          <li>Special occasion &amp; formal styling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── SPA SERVICES ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="spa">
+  <div class="wrap">
+    <div class="section-label">Spa Services</div>
+    <h2>Relaxation<br>&amp; Results</h2>
+    <div class="service-grid">
+      <div class="service-block">
+        <h3>🧖 Skin &amp; Waxing Expertise</h3>
+        <ul>
+          <li>Custom facials — personalized to your skin</li>
+          <li>Chemical peels — renew &amp; brighten</li>
+          <li>Microdermabrasion — smooth, even texture</li>
+          <li>Dermaplaning — exfoliate &amp; refine</li>
+          <li>Sugar waxing — gentle, natural hair removal</li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">Licensed esthetician in a private, calming setting.</p>
+      </div>
+      <div class="service-block">
+        <h3>💆 Deep Relaxation &amp; Massage</h3>
+        <ul>
+          <li>60-minute full-body therapeutic massage</li>
+          <li>90-minute extended session</li>
+          <li>Prenatal massage — nurturing care for moms</li>
+          <li>Hot Stone add-on — targeted muscle relief</li>
+          <li>CBD add-on — enhanced relaxation</li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">Massage by appointment only.</p>
+      </div>
+      <div class="service-block">
+        <h3>💅 Nail Beauty</h3>
+        <ul>
+          <li>Classic Manicure — meticulous care</li>
+          <li>Spa Pedicure — relaxing foot treatment</li>
+          <li>Dip Powder — durable, chip-resistant finish</li>
+          <li>Gel finish — flawless, long-lasting shine</li>
+          <li>Lash extensions — by appointment</li>
+        </ul>
+        <p style="margin-top:12px;font-size:13px;color:var(--muted);">Nail services by appointment only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── PRODUCTS & STORE ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal brands-section" id="products">
+  <div class="wrap">
+    <div class="section-label" style="color:var(--accent)">Brands &amp; Products</div>
+    <h2>Your Glow-Up<br>Starts Here</h2>
+    <p class="brands-subtitle">Indulge, Relax, &amp; Get Renewed!</p>
+
+    <div class="brands-grid">
+      <!-- ═══ IN SALON ═══ -->
+      <div>
+        <div class="brands-col-title">In Salon</div>
+
+        <div class="brand-card">
+          <h4>Milbon</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Anti-Frizz</span>
+            <span class="brand-tag-sm">Repair Restorative</span>
+            <span class="brand-tag-sm">Smooth</span>
+            <span class="brand-tag-sm">Medium</span>
+            <span class="brand-tag-sm">Fine</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Redken</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Acidic Bonding Concentrate</span>
+            <span class="brand-tag-sm">Acidic Bonding Curls</span>
+            <span class="brand-tag-sm">Acidic Color Gloss</span>
+            <span class="brand-tag-sm">Frizz Dismiss</span>
+            <span class="brand-tag-sm">Extreme Lengths</span>
+            <span class="brand-tag-sm">Volume Injection</span>
+            <span class="brand-tag-sm">Color Extend Blondage</span>
+            <span class="brand-tag-sm">Styling Products</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Aluram</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Daily</span>
+            <span class="brand-tag-sm">Moisture</span>
+            <span class="brand-tag-sm">Volume</span>
+            <span class="brand-tag-sm">Styling Products</span>
+            <span class="brand-tag-sm">Shine Treatments</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Olaplex</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">No.3</span>
+            <span class="brand-tag-sm">No.4</span>
+            <span class="brand-tag-sm">No.4C</span>
+            <span class="brand-tag-sm">No.4P</span>
+            <span class="brand-tag-sm">No.5</span>
+            <span class="brand-tag-sm">No.6</span>
+            <span class="brand-tag-sm">No.7</span>
+            <span class="brand-tag-sm">No.8</span>
+            <span class="brand-tag-sm">No.9</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Kenra</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Styling Products</span>
+            <span class="brand-tag-sm">Platinum Line</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Brazilian Blowout</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Anti-Frizz Line</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Color Wow</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Dream Coat Curly</span>
+            <span class="brand-tag-sm">Dream Coat Regular</span>
+            <span class="brand-tag-sm">Dream Coat Extra</span>
+            <span class="brand-tag-sm">Dream Cocktail Carb &amp; Kale</span>
+            <span class="brand-tag-sm">Dream Filter</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Bain de Terre</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Green Meadow Balancing</span>
+            <span class="brand-tag-sm">Passion Flower Color Preserving</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <h4>Surface</h4>
+          <div class="brand-tags">
+            <span class="brand-tag-sm">Awaken</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ONLINE STORE ═══ -->
+      <div>
+        <div class="brands-col-title">Online Store</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.65);margin:0 0 16px;line-height:1.6">Explore endless options — all your favorite brands, essential tools, and curated gift sets delivered to your door.</p>
+
+        <div class="brand-card-online">
+          <div class="online-brand-grid">
+            <span class="online-brand-chip">18.21 Man Made</span>
+            <span class="online-brand-chip">Alfaparf Milano</span>
+            <span class="online-brand-chip">Alter Ego</span>
+            <span class="online-brand-chip">Amika</span>
+            <span class="online-brand-chip">B3 Brazilian Bond Builder</span>
+            <span class="online-brand-chip">Brazilian Blowout</span>
+            <span class="online-brand-chip">Color Wow</span>
+            <span class="online-brand-chip">Hotheads</span>
+            <span class="online-brand-chip">J Beverly Hills</span>
+            <span class="online-brand-chip">K18 Hair</span>
+            <span class="online-brand-chip">Keratherapy</span>
+            <span class="online-brand-chip">Keune</span>
+            <span class="online-brand-chip">Leaf + Flower</span>
+            <span class="online-brand-chip">Lilash</span>
+            <span class="online-brand-chip">Living Proof</span>
+            <span class="online-brand-chip">Milbon</span>
+            <span class="online-brand-chip">Moroccanoil</span>
+            <span class="online-brand-chip">Mowan Megix10</span>
+            <span class="online-brand-chip">Neuma</span>
+            <span class="online-brand-chip">Reuzel</span>
+            <span class="online-brand-chip">Stylecraft</span>
+            <span class="online-brand-chip">USmooth</span>
+            <span class="online-brand-chip">Zenagen</span>
+          </div>
+        </div>
+
+        <div class="skincare-callout">
+          <h4>🧖 DermAware BioTargeted Skin Care</h4>
+          <p>Schedule a facial with our licensed esthetician to discover which DermAware products are best suited for your unique skin needs. Pure formulations — no drying added alcohols, never watered down, ensuring concentrated, effective results.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SPECIAL OFFER ── -->
+    <div class="offer" style="margin-top:40px">
+      <h2>✨ Limited-Time Offer</h2>
+      <p><strong style="color:var(--text);">REDKEN Acidic Color Gloss</strong> — lock in maximum shine. Take <strong style="color:var(--accent);">20% OFF</strong> any single product or save big with <strong style="color:var(--accent);">35% OFF</strong> the entire 4-Product System. While supplies last.</p>
+      <a href="http://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Shop the Offer</a>
+    </div>
+
+    <div class="brands-cta cta-row">
+      <a href="http://shop.renewmeridian.com" class="btn btn-accent" target="_blank">Start Shopping Local →</a>
+      <a href="https://www.renewsalonmeridian.com" class="btn btn-ghost" target="_blank">Visit Official Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── OUR SALON — 7-PHOTO GALLERY ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="salon">
+  <div class="wrap">
+    <div class="section-label">Our Salon</div>
+    <h2>Come see us at<br>2500 North Hills Street</h2>
+    <p>Step inside Renew Salon &amp; Spa — a modern, welcoming space designed for your comfort and confidence.</p>
+    <div class="gallery-wrap">
+      <div class="gallery-scroll">
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014517.jpg" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014517.jpg" alt="Renew Salon interior — styling stations" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014518.jpg" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014518.jpg" alt="Salon space — clean, modern design" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014519.png" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014519.png" alt="Salon detail — product display" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014520.JPG" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014520.JPG" alt="Styling station — professional setup" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014521.jpg" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014521.jpg" alt="Salon products — premium brands" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014522.png" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014522.png" alt="Salon space — relaxing atmosphere" loading="lazy">
+        </a>
+        <a href="https://www.renewsalonmeridian.com/s/cc_images/cache_959014523.jpg" target="_blank">
+          <img src="https://www.renewsalonmeridian.com/s/cc_images/cache_959014523.jpg" alt="Renew Salon &amp; Spa" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── OUR STAFF ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="our-staff">
+  <div class="wrap">
+    <div class="section-label">Our Staff</div>
+    <h2>Professional stylists,<br>nail technicians &amp; staff</h2>
+    <p>Experienced professionals who listen to you. We stay current with the latest trends — but your wishes come first.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Hollie Barber</h3>
+        <p>Salon Owner, Stylist &amp; Esthetician. 10+ years of experience. Final Touch Beauty School (2012), esthetics certified (2014).</p>
+      </div>
+      <div class="card">
+        <h3>Lucinda Moulds</h3>
+        <p>Stylist &amp; Makeup Artist. 32+ years. Former personal artist for <em>Food Network's</em> Tyler Florence. Weddings, photo shoots, stage productions.</p>
+      </div>
+      <div class="card">
+        <h3>Paige Miller</h3>
+        <p>Stylist since 2018. Meridian Community College Cosmetology. Highlights, color, balayage, keratin treatments, facial waxing.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="https://www.renewsalonmeridian.com/our-staff/" class="btn btn-ghost" target="_blank">Meet the Full Team →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── POLICIES ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="policies">
+  <div class="wrap">
+    <div class="section-label">Our Policies</div>
+    <h2>Late, cancellation<br>&amp; no-show policies</h2>
+    <p>Late arrivals may result in shortened service time. Cancellations require 24-hour notice. No-shows will be charged. Massage, esthetics, sugaring, nails, and lashes are by appointment only.</p>
+    <div class="cta-row">
+      <a href="https://www.renewsalonmeridian.com/our-policies/" class="btn btn-ghost" target="_blank">View Full Policies →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- ── CONTACT & HOURS ── -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<section class="section reveal" id="directions">
+  <div class="wrap">
+    <div class="section-label">Contact &amp; Hours</div>
+    <h2>Visit us</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="label">Address</div>
+        <div class="value">2500 North Hills St.<br>Suite D<br>Meridian, MS 39305</div>
+      </div>
+      <div class="contact-card">
+        <div class="label">Phone</div>
+        <div class="value"><a href="tel:+16012863021">(601) 286-3021</a></div>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;">Ask for Amy or Kodi</p>
+      </div>
+      <div class="contact-card">
+        <div class="label">Salon Hours</div>
+        <div class="value">
+          Tue–Fri: 9:00 AM – 5:30 PM<br>
+          Sat: 9:00 AM – 1:00 PM<br>
+          <span style="color:var(--muted);font-size:13px;">Walk-ins welcome for hair<br>Appointments recommended</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="label">Follow Us</div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/renew.salon.meridian" class="social-btn" target="_blank">Facebook</a>
+          <a href="https://www.instagram.com/renew.salon.meridian/" class="social-btn" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a href="https://maps.google.com/?q=2500+North+Hills+St+Meridian+MS+39305" class="btn btn-accent" target="_blank">Get Directions →</a>
+      <a href="tel:+16012863021" class="btn btn-ghost">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <p style="font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px;">Renew Salon &amp; Spa</p>
+    <p>2500 North Hills St., Suite D · Meridian, MS 39305</p>
+    <p style="margin-top:8px;">
+      <a href="https://www.renewsalonmeridian.com/sitemap/">Sitemap</a>
+      &nbsp;·&nbsp;
+      Demo by <a href="#" style="color:var(--accent);">Almerra Web Studio</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<script>
+// Scroll reveal animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Staggered brands card reveal
+(function(){
+  var brandsSection = document.querySelector('.brands-section');
+  if (!brandsSection) return;
+  var cards = brandsSection.querySelectorAll('.brand-card, .brand-card-online');
+  var fired = false;
+  var brandsObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && !fired) {
+        fired = true;
+        cards.forEach(function(card, i){
+          setTimeout(function(){
+            card.classList.add('visible');
+          }, i * 80);
+        });
+      }
+    });
+  }, { threshold: 0.08 });
+  brandsObserver.observe(brandsSection);
+})();
+
+// Smooth parallax glow follows mouse on hero
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove', (e) => {
+  const { left, top, width, height } = hero.getBoundingClientRect();
+  const x = (e.clientX - left) / width;
+  const y = (e.clientY - top) / height;
+  hero.style.setProperty('--mx', `${x*100}%`);
+  hero.style.setProperty('--my', `${y*100}%`);
+});
+
+/* ── Mobile menu toggle ── */
+(function(){
+  var burger=document.getElementById('burger');
+  var overlay=document.getElementById('mobile-overlay');
+  var menu=document.getElementById('mobile-menu');
+  var links=document.querySelectorAll('.mobile-link');
+  if(!burger||!overlay||!menu)return;
+  function open(){burger.classList.add('open');overlay.classList.add('open');menu.classList.add('open');document.body.style.overflow='hidden'}
+  function close(){burger.classList.remove('open');overlay.classList.remove('open');menu.classList.remove('open');document.body.style.overflow=''}
+  burger.addEventListener('click',function(){burger.classList.contains('open')?close():open()});
+  overlay.addEventListener('click',close);
+  links.forEach(function(l){l.addEventListener('click',close)});
+})();
+
+/* ── Background Smoke Engine ── */
+(function(){
+  var cv=document.getElementById('bg-smoke');if(!cv)return;
+  var ctx=cv.getContext('2d');
+  var blobs=[],turb=0.8;
+  var COLS=[{r:233,g:30,b:99},{r:173,g:20,b:87},{r:248,g:187,b:208}];
+  function lerp(a,b,t){return a+(b-a)*t}
+  function hash(x,y,z){var h=(x*374761393+y*668265263+z*1440672373)|0;h=((h^(h>>>13))*1274126177)|0;return(h^(h>>>16))/2147483648}
+  function n3(x,y,z){var ix=Math.floor(x),iy=Math.floor(y),iz=Math.floor(z);var fx=x-ix,fy=y-iy,fz=z-iz;var sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),sz=fz*fz*(3-2*fz);var n000=hash(ix,iy,iz),n100=hash(ix+1,iy,iz),n010=hash(ix,iy+1,iz),n110=hash(ix+1,iy+1,iz),n001=hash(ix,iy,iz+1),n101=hash(ix+1,iy,iz+1),n011=hash(ix,iy+1,iz+1),n111=hash(ix+1,iy+1,iz+1);return lerp(lerp(lerp(n000,n100,sx),lerp(n010,n110,sx),sy),lerp(lerp(n001,n101,sx),lerp(n011,n111,sx),sy),sz)}
+  function fbm(x,y,z,o){var v=0,a=1,f=1,m=0;for(var i=0;i<o;i++){v+=a*n3(x*f,y*f,z*f);m+=a;a*=0.55;f*=2.3}return v/m}
+
+  function build(){
+    blobs=[];var w=window.innerWidth,h=window.innerHeight,c=window.innerWidth<768?40:120;
+    for(var L=0;L<4;L++){var n=Math.round(c/4),sz=80+L*55;
+      for(var i=0;i<n;i++)blobs.push({l:L,x:Math.random()*w,y:Math.random()*h,bx:Math.random()*w,by:Math.random()*h,r:sz+Math.random()*sz*0.7,ox:Math.random()*999,oy:Math.random()*999})}
+  }
+
+  function col(L){var b=COLS[0],w=COLS[1];var r=Math.round(b.r+(w.r-b.r)*0.4),g=Math.round(b.g+(w.g-b.g)*0.4),bb=Math.round(b.b+(w.b-b.b)*0.4);if(L>=3){r=Math.min(255,r+COLS[2].r*0.2);g=Math.min(255,g+COLS[2].g*0.2);bb=Math.min(255,bb+COLS[2].b*0.2)}return'rgba('+r+','+g+','+bb+','}
+
+  function render(ts){
+    var t=ts*0.001,w=window.innerWidth,h=window.innerHeight,dpr=Math.min(devicePixelRatio||1,w<768?1:2);
+    if(cv.width!==w*dpr||cv.height!==h*dpr){cv.width=w*dpr;cv.height=h*dpr;build()}
+    ctx.clearRect(0,0,cv.width,cv.height);
+    for(var i=0;i<blobs.length;i++){
+      var b=blobs[i],nz=t*0.3+b.l*7;
+      b.bx+=fbm(b.ox,b.oy+t*0.10,nz+20,2)*2.5;
+      b.by+=fbm(b.ox+50,b.oy+t*0.12,nz+80,2)*2.5;
+      var dx=fbm(b.ox+t*0.22,b.oy,nz,3)*500*turb;
+      var dy=fbm(b.ox,b.oy+t*0.18,nz+50,3)*500*turb;
+      b.x=b.bx+dx;b.y=b.by+dy;
+      if(b.x<-b.r)b.x+=w+b.r*2;if(b.x>w+b.r)b.x-=w+b.r*2;
+      if(b.y<-b.r)b.y+=h+b.r*2;if(b.y>h+b.r)b.y-=h+b.r*2;
+      var g=ctx.createRadialGradient(b.x*dpr,b.y*dpr,0,b.x*dpr,b.y*dpr,b.r*dpr);
+      g.addColorStop(0,col(b.l)+'0.22)');g.addColorStop(0.4,col(b.l)+'0.10)');g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g;ctx.fillRect((b.x-b.r)*dpr,(b.y-b.r)*dpr,b.r*2*dpr,b.r*2*dpr)
+    }
+    requestAnimationFrame(render)
+  }
+
+  cv.style.filter='blur(48px)';build();
+  var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;
+  window.addEventListener('resize',function(){var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;build()});
+  requestAnimationFrame(render)
+})();
+</script>
+
+</body>
+</html>
