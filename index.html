@@ -1018,14 +1018,31 @@ hero.addEventListener('mousemove', (e) => {
 
   function col(L){var b=COLS[0],w=COLS[1];var r=Math.round(b.r+(w.r-b.r)*0.4),g=Math.round(b.g+(w.g-b.g)*0.4),bb=Math.round(b.b+(w.b-b.b)*0.4);if(L>=3){r=Math.min(255,r+COLS[2].r*0.2);g=Math.min(255,g+COLS[2].g*0.2);bb=Math.min(255,bb+COLS[2].b*0.2)}return'rgba('+r+','+g+','+bb+','}
 
+  var VW=0,VH=0,DPR=1,lastTs=0,lastW=0,lastH=0;
+
+  // (Re)size the canvas. Ignores small height-only changes so the mobile
+  // address bar hiding/showing during scroll does NOT rebuild the smoke.
+  function fit(force){
+    var w=window.innerWidth,h=window.innerHeight;
+    DPR=Math.min(devicePixelRatio||1,w<768?1:2);
+    var sameW=(w===lastW), tinyH=(Math.abs(h-lastH)<160);
+    if(!force && sameW && tinyH){ return; }   // address-bar wobble → do nothing
+    lastW=w;lastH=h;VW=w;VH=h;
+    cv.width=w*DPR;cv.height=h*DPR;
+    build();
+  }
+
   function render(ts){
-    var t=ts*0.001,w=window.innerWidth,h=window.innerHeight,dpr=Math.min(devicePixelRatio||1,w<768?1:2);
-    if(cv.width!==w*dpr||cv.height!==h*dpr){cv.width=w*dpr;cv.height=h*dpr;build()}
+    // Time-based step: keeps a constant real-world speed regardless of frame
+    // rate, and the cap stops a post-stall catch-up frame from lurching.
+    var dt=lastTs?ts-lastTs:16.667; lastTs=ts;
+    if(dt>50)dt=50;
+    var k=dt/16.667, t=ts*0.001, w=VW, h=VH, dpr=DPR;
     ctx.clearRect(0,0,cv.width,cv.height);
     for(var i=0;i<blobs.length;i++){
       var b=blobs[i],nz=t*0.3+b.l*7;
-      b.bx+=fbm(b.ox,b.oy+t*0.10,nz+20,2)*2.5;
-      b.by+=fbm(b.ox+50,b.oy+t*0.12,nz+80,2)*2.5;
+      b.bx+=fbm(b.ox,b.oy+t*0.10,nz+20,2)*2.5*k;
+      b.by+=fbm(b.ox+50,b.oy+t*0.12,nz+80,2)*2.5*k;
       var dx=fbm(b.ox+t*0.22,b.oy,nz,3)*500*turb;
       var dy=fbm(b.ox,b.oy+t*0.18,nz+50,3)*500*turb;
       b.x=b.bx+dx;b.y=b.by+dy;
@@ -1038,12 +1055,14 @@ hero.addEventListener('mousemove', (e) => {
     if(running) rafId=requestAnimationFrame(render)
   }
 
-  function start(){if(running)return;running=true;rafId=requestAnimationFrame(render)}
+  function start(){if(running)return;running=true;lastTs=0;rafId=requestAnimationFrame(render)}
   function stop(){running=false;if(rafId)cancelAnimationFrame(rafId)}
 
-  cv.style.filter='blur(48px)';build();
-  var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;
-  window.addEventListener('resize',function(){var dpr=Math.min(devicePixelRatio||1,2);cv.width=window.innerWidth*dpr;cv.height=window.innerHeight*dpr;build()});
+  cv.style.filter='blur(48px)';
+  fit(true);
+  var resizeTimer;
+  window.addEventListener('resize',function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(function(){fit(false)},200)},{passive:true});
+  window.addEventListener('orientationchange',function(){fit(true)});
   // Pause the animation whenever the tab/window is hidden — saves battery & CPU
   document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
   start();
